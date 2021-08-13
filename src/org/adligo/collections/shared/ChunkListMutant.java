@@ -11,11 +11,17 @@ import org.adligo.i.collections.shared.I_ListSetters;
  * @see /notes/2021-08-11-scot-heinz.txt
  * 
  * ArrayList appears to have O(n) on add and insert (add(int, T))
- * any time the list overflows capacity (Arrays.copy).  This class gets add down to
+ * any time the list overflows capacity (Arrays.copy) for a single element!  
+ * This class gets add down to
  * O(c + s) where c is the number of chunks and s is the size
  * of the chunks.  If n = 1000, c = 100, and s = 10 this would be 
  * almost 10x faster (1000 vs 110).  If n = 1000, c = 50, and s = 20 you get 
- * better than 10x (1000 vs 70) etc.
+ * better by 10x (1000 vs 70) etc.
+ *   Although this might not seem like a huge cost in the millisecond timing
+ * that Heinz did (@see notes), I think this would add up in larger applications
+ * (Servers) and cause a lot of unnecessary churn in the garbage collector.  I will
+ * probably get around ti actually impelmenting it at some point.
+ * 
  * @author scott
  *
  * @param <T>
