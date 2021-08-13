@@ -7,6 +7,9 @@ import org.adligo.i.collections.shared.I_ListMutant;
 import org.adligo.i.collections.shared.I_ListSetters;
 
 /**
+ * @Experimental, this would compete with ArrayList
+ * @see /notes/2021-08-11-scot-heinz.txt
+ * 
  * ArrayList appears to have O(n) on add and insert (add(int, T))
  * any time the list overflows capacity (Arrays.copy).  This class gets add down to
  * O(c + s) where c is the number of chunks and s is the size

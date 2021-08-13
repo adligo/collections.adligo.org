@@ -9,6 +9,12 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 /**
+ * @Experimental this would compete with ConcurrentSkipListSet
+ * @see /notes/2021-08-11-scot-heinz.txt
+ *   Also it would probably take the form of two Heaps a min and max heap where
+ *   the min heap elements poing to the lower bound of the lists of elements
+ *   and the max heaps point to the upper bound of the lists of elements.
+ *   
  * Keeps a ordered ArrayList by using the standard {@link #hashCode()} of the
  * type T. Provides a binary search {@link HashIndexMutant#search} that
  * retrieves the nearest right and left neighbors in addition to the requested
