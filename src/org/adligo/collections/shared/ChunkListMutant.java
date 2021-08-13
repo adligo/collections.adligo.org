@@ -8,7 +8,7 @@ import org.adligo.i.collections.shared.I_ListSetters;
 
 /**
  * @Experimental, this would compete with ArrayList
- * @see /notes/2021-08-11-scot-heinz.txt
+ * @see /notes/2021-08-11-scott-heinz.txt
  * 
  * ArrayList appears to have O(n) on add and insert (add(int, T))
  * any time the list overflows capacity (Arrays.copy) for a single element!  
