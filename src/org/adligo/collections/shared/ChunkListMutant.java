@@ -20,7 +20,7 @@ import org.adligo.i.collections.shared.I_ListSetters;
  *   Although this might not seem like a huge cost in the millisecond timing
  * that Heinz did (@see notes), I think this would add up in larger applications
  * (Servers) and cause a lot of unnecessary churn in the garbage collector.  I will
- * probably get around ti actually impelmenting it at some point.
+ * probably get around to actually implementing it at some point.
  * 
  * @author scott
  *
