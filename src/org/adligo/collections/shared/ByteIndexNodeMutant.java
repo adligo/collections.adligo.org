@@ -32,7 +32,7 @@ import org.adligo.i_collections.shared.I_IndexNodeMutant;
  * </code><pre>
  */
 public class ByteIndexNodeMutant<T> implements I_IndexNodeMutant<T> {
-  public static final String THE_IDX_PARAMETER_MUST_BE_BETWEEN_0_63 = "The idx parameter MUST be between 0-63!";
+  public static final String THE_IDX_PARAMETER_MUST_BE_BETWEEN_0_7 = "The idx parameter MUST be between 0-7!";
   public static final Object[] ZERO_LENGTH_ARRAY = new Object[0];
   public static final long ONE = 1L;
   /**
@@ -58,7 +58,7 @@ public class ByteIndexNodeMutant<T> implements I_IndexNodeMutant<T> {
   @Override
   public T get(int idx) {
     if (idx < 0 || idx >= 8) {
-      throw new IllegalArgumentException(THE_IDX_PARAMETER_MUST_BE_BETWEEN_0_63);
+      throw new IllegalArgumentException(THE_IDX_PARAMETER_MUST_BE_BETWEEN_0_7);
     } else {
        //is the bit at idx set?
       long set = itemIdxs & (1 << idx);
