@@ -37,9 +37,9 @@ public class ByteIndexNodeMutant<T> implements I_IndexNodeMutant<T> {
   public static final long ONE = 1L;
   /**
    * inspired by {@link <a href="https://en.wikipedia.org/wiki/Van_Emde_Boas_tree">Van Emde Boas trees</a>
-   * this long is really a binary structure with 64 bits (8 bytes).
+   * this byte is really a binary structure with 8 bits.
    * if the bit at index is set to true, then a element exists at index of 0,
-   * etc all the way up until 63
+   * etc all the way up until 7
    */
   private byte itemIdxs = 0;
   @SuppressWarnings("unchecked")
