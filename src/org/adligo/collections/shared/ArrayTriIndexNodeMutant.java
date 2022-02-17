@@ -15,10 +15,12 @@ import org.adligo.i_collections.shared.I_IndexNodeMutant;
  * put and set of O(1), as getting to a element T would always 
  * traverse the entire ziggurat height (aka a flat top tree).   <br/>
  *   The main problem / drawback with this data 
- * structure is the cost of the pointers to empty {@link Tri}}s for sparse
+ * structure is the cost of the pointers to {@link Tri#EMPTY_TRI}s for sparse
  * data.  For example if the base is 3 then we have 512 bytes 
- * of pointers to empty {@link Tri}, if 4 (16 slots) we have 1,024 bytes of
- * pointers empty {@link Tri}}s .
+ * of pointers to {@link Tri#EMPTY_TRI}, if 4 (16 slots) we have 1,024 bytes (1Kb) of
+ * pointers to {@link Tri#EMPTY_TRI}sbr/>
+ *   This problem MAY be alienated significantly by setting compress flag to to true,
+ *  which should reduce the size to O(n) as it's less than 2*n.  <br/>
  * 
  * @author scott
  *
@@ -41,9 +43,33 @@ import org.adligo.i_collections.shared.I_IndexNodeMutant;
  * </code><pre>
  */
 public class ArrayTriIndexNodeMutant<T> implements I_IndexNodeMutant<T> {
-  
+  /**
+   * The base Math.pow(2, base) number of elements in the top / left
+   * arrays
+   */
+  private int _base;
+  /**
+   * The base Math.pow(2, base) number of elements in the leaf
+   * most nodes, note if compress is true the leaf most nodes will 
+   * be  {@link ByteIndexNodeMutant}, so this will be 3 for arrays of size 8.
+   */
+  private int _baseLeaf;
+  /**
+   * When this is set to true the items leaf 
+   * most node will be a {@link ByteIndexNodeMutant}
+   * when false it will be a {@link ArrayIndexNodeMutant}
+   */
+  private boolean compress = false;
   private int dimensions;
-  private Tri<ArrayIndexNodeMutant<T>, ArrayTriIndexNodeMutant<T>>[] items;
+  /**
+   * this is top down left to right so the items
+   * in here are either <br/>
+   * empty<br/>
+   * another dimension of this<br/>
+   * or
+   * leaf's @see compress above
+   */
+  private Tri<ByteIndexNodeMutant<T>, I_IndexNodeMutant<T>>[] items;
   private int size = 0;
 
   public ArrayTriIndexNodeMutant() {
@@ -52,6 +78,8 @@ public class ArrayTriIndexNodeMutant<T> implements I_IndexNodeMutant<T> {
   
   @SuppressWarnings("unchecked")
   public ArrayTriIndexNodeMutant(int base, int dimensions) {
+    _base = base;
+    _baseLeaf = base;
     int size = (int) Math.pow(2, base);
     items = new Tri[size];
     for (int i = 0; i < items.length; i++) {

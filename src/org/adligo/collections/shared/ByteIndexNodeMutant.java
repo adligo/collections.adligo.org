@@ -4,7 +4,34 @@ import java.util.Optional;
 
 import org.adligo.i_collections.shared.I_IndexNodeMutant;
 
-public class IndexByteNodeMutant<T> implements I_IndexNodeMutant<T> {
+/**
+ * A strange node inspired by 
+ * {@link <a href="https://en.wikipedia.org/wiki/Van_Emde_Boas_tree">Van Emde Boas tree</a>
+ * which only has a max of 8 items and attempts to shrink space even
+ * reducint the memory cost of null pointers (8 bytes).  While
+ * not impacting performance much
+ * 
+ * @author scott
+ *
+ * <pre><code>
+ * ---------------- Apache ICENSE-2.0 --------------------------
+ *
+ * Copyright 2022 Adligo Inc
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * </code><pre>
+ */
+public class ByteIndexNodeMutant<T> implements I_IndexNodeMutant<T> {
   public static final String THE_IDX_PARAMETER_MUST_BE_BETWEEN_0_63 = "The idx parameter MUST be between 0-63!";
   public static final Object[] ZERO_LENGTH_ARRAY = new Object[0];
   public static final long ONE = 1L;
@@ -77,7 +104,7 @@ public class IndexByteNodeMutant<T> implements I_IndexNodeMutant<T> {
         itemsI++;
       }
       if (i == idx) {
-        return items[itemsI];
+        return items[items.length - itemsI];
       }
     }
     throw new IllegalStateException();
