@@ -31,7 +31,7 @@ import org.adligo.i_collections.shared.I_IndexMutant;
  * limitations under the License.
  * </code><pre>
  */
-public class ArrayIndxMutant<T> implements I_IndexMutant<T> {
+public class IndxMutant<T> implements I_IndexMutant<T> {
   private NumberedArrayIndexMutant<Numbered<T>> _delegate;
   
   @Override
