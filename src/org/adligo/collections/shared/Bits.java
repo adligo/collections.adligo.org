@@ -51,14 +51,14 @@ public class Bits {
       case (byte) 0x84: //no break
       case (byte) 0x88: //no break
       case (byte) 0x90: //no break
-      case (byte) 0xA0: //no break
-      case (byte) 0xC0: //no break
+      case (byte) 0xa0: //no break
+      case (byte) 0xc0: //no break
       case (byte) 0x03: //no break
       case (byte) 0x05: //no break
       case (byte) 0x06: //no break
       case (byte) 0x09: //no break
-      case (byte) 0x0A: //no break
-      case (byte) 0x0C: //no break
+      case (byte) 0x0a: //no break
+      case (byte) 0x0c: //no break
       case (byte) 0x11: //no break
       case (byte) 0x12: //no break
       case (byte) 0x14: //no break
@@ -79,39 +79,39 @@ public class Bits {
       case (byte) 0x85: //no break
       case (byte) 0x86: //no break
       case (byte) 0x89: //no break
-      case (byte) 0x8A: //no break
-      case (byte) 0x8C: //no break
+      case (byte) 0x8a: //no break
+      case (byte) 0x8c: //no break
       case (byte) 0x91: //no break
       case (byte) 0x92: //no break
       case (byte) 0x94: //no break
       case (byte) 0x98: //no break
-      case (byte) 0xA1: //no break
-      case (byte) 0xA2: //no break
-      case (byte) 0xA4: //no break
-      case (byte) 0xA8: //no break
-      case (byte) 0xB0: //no break
-      case (byte) 0xC1: //no break
-      case (byte) 0xC2: //no break
-      case (byte) 0xC4: //no break
-      case (byte) 0xC8: //no break
-      case (byte) 0xD0: //no break
-      case (byte) 0xE0: //no break
+      case (byte) 0xa1: //no break
+      case (byte) 0xa2: //no break
+      case (byte) 0xa4: //no break
+      case (byte) 0xa8: //no break
+      case (byte) 0xb0: //no break
+      case (byte) 0xc1: //no break
+      case (byte) 0xc2: //no break
+      case (byte) 0xc4: //no break
+      case (byte) 0xc8: //no break
+      case (byte) 0xd0: //no break
+      case (byte) 0xe0: //no break
       case (byte) 0x07: //no break
-      case (byte) 0x0B: //no break
-      case (byte) 0x0D: //no break
-      case (byte) 0x0E: //no break
+      case (byte) 0x0b: //no break
+      case (byte) 0x0d: //no break
+      case (byte) 0x0e: //no break
       case (byte) 0x13: //no break
       case (byte) 0x15: //no break
       case (byte) 0x16: //no break
       case (byte) 0x19: //no break
-      case (byte) 0x1A: //no break
-      case (byte) 0x1C: //no break
+      case (byte) 0x1a: //no break
+      case (byte) 0x1c: //no break
       case (byte) 0x23: //no break
       case (byte) 0x25: //no break
       case (byte) 0x26: //no break
       case (byte) 0x29: //no break
-      case (byte) 0x2A: //no break
-      case (byte) 0x2C: //no break
+      case (byte) 0x2a: //no break
+      case (byte) 0x2c: //no break
       case (byte) 0x31: //no break
       case (byte) 0x32: //no break
       case (byte) 0x34: //no break
@@ -120,8 +120,8 @@ public class Bits {
       case (byte) 0x45: //no break
       case (byte) 0x46: //no break
       case (byte) 0x49: //no break
-      case (byte) 0x4A: //no break
-      case (byte) 0x4C: //no break
+      case (byte) 0x4a: //no break
+      case (byte) 0x4c: //no break
       case (byte) 0x51: //no break
       case (byte) 0x52: //no break
       case (byte) 0x54: //no break
@@ -133,169 +133,169 @@ public class Bits {
       case (byte) 0x70: //no break
         return 3;
       case (byte) 0x87: //no break
-      case (byte) 0x8B: //no break
-      case (byte) 0x8D: //no break
-      case (byte) 0x8E: //no break
+      case (byte) 0x8b: //no break
+      case (byte) 0x8d: //no break
+      case (byte) 0x8e: //no break
       case (byte) 0x93: //no break
       case (byte) 0x95: //no break
       case (byte) 0x96: //no break
       case (byte) 0x99: //no break
-      case (byte) 0x9A: //no break
-      case (byte) 0x9C: //no break
-      case (byte) 0xA3: //no break
-      case (byte) 0xA5: //no break
-      case (byte) 0xA6: //no break
-      case (byte) 0xA9: //no break
-      case (byte) 0xAA: //no break
-      case (byte) 0xAC: //no break
-      case (byte) 0xB1: //no break
-      case (byte) 0xB2: //no break
-      case (byte) 0xB4: //no break
-      case (byte) 0xB8: //no break
-      case (byte) 0xC3: //no break
-      case (byte) 0xC5: //no break
-      case (byte) 0xC6: //no break
-      case (byte) 0xC9: //no break
-      case (byte) 0xCA: //no break
-      case (byte) 0xCC: //no break
-      case (byte) 0xD1: //no break
-      case (byte) 0xD2: //no break
-      case (byte) 0xD4: //no break
-      case (byte) 0xD8: //no break
-      case (byte) 0xE1: //no break
-      case (byte) 0xE2: //no break
-      case (byte) 0xE4: //no break
-      case (byte) 0xE8: //no break
-      case (byte) 0xF0: //no break
-      case (byte) 0x0F: //no break
+      case (byte) 0x9a: //no break
+      case (byte) 0x9c: //no break
+      case (byte) 0xa3: //no break
+      case (byte) 0xa5: //no break
+      case (byte) 0xa6: //no break
+      case (byte) 0xa9: //no break
+      case (byte) 0xaa: //no break
+      case (byte) 0xac: //no break
+      case (byte) 0xb1: //no break
+      case (byte) 0xb2: //no break
+      case (byte) 0xb4: //no break
+      case (byte) 0xb8: //no break
+      case (byte) 0xc3: //no break
+      case (byte) 0xc5: //no break
+      case (byte) 0xc6: //no break
+      case (byte) 0xc9: //no break
+      case (byte) 0xca: //no break
+      case (byte) 0xcc: //no break
+      case (byte) 0xd1: //no break
+      case (byte) 0xd2: //no break
+      case (byte) 0xd4: //no break
+      case (byte) 0xd8: //no break
+      case (byte) 0xe1: //no break
+      case (byte) 0xe2: //no break
+      case (byte) 0xe4: //no break
+      case (byte) 0xe8: //no break
+      case (byte) 0xf0: //no break
+      case (byte) 0x0f: //no break
       case (byte) 0x17: //no break
-      case (byte) 0x1B: //no break
-      case (byte) 0x1D: //no break
-      case (byte) 0x1E: //no break
+      case (byte) 0x1b: //no break
+      case (byte) 0x1d: //no break
+      case (byte) 0x1e: //no break
       case (byte) 0x27: //no break
-      case (byte) 0x2B: //no break
-      case (byte) 0x2D: //no break
-      case (byte) 0x2E: //no break
+      case (byte) 0x2b: //no break
+      case (byte) 0x2d: //no break
+      case (byte) 0x2e: //no break
       case (byte) 0x33: //no break
       case (byte) 0x35: //no break
       case (byte) 0x36: //no break
       case (byte) 0x39: //no break
-      case (byte) 0x3A: //no break
-      case (byte) 0x3C: //no break
+      case (byte) 0x3a: //no break
+      case (byte) 0x3c: //no break
       case (byte) 0x47: //no break
-      case (byte) 0x4B: //no break
-      case (byte) 0x4D: //no break
-      case (byte) 0x4E: //no break
+      case (byte) 0x4b: //no break
+      case (byte) 0x4d: //no break
+      case (byte) 0x4e: //no break
       case (byte) 0x53: //no break
       case (byte) 0x55: //no break
       case (byte) 0x56: //no break
       case (byte) 0x59: //no break
-      case (byte) 0x5A: //no break
-      case (byte) 0x5C: //no break
+      case (byte) 0x5a: //no break
+      case (byte) 0x5c: //no break
       case (byte) 0x63: //no break
       case (byte) 0x65: //no break
       case (byte) 0x66: //no break
       case (byte) 0x69: //no break
-      case (byte) 0x6A: //no break
-      case (byte) 0x6C: //no break
+      case (byte) 0x6a: //no break
+      case (byte) 0x6c: //no break
       case (byte) 0x71: //no break
       case (byte) 0x72: //no break
       case (byte) 0x74: //no break
       case (byte) 0x78: //no break
         return 4;
-      case (byte) 0x8F: //no break
+      case (byte) 0x8f: //no break
       case (byte) 0x97: //no break
-      case (byte) 0x9B: //no break
-      case (byte) 0x9D: //no break
-      case (byte) 0x9E: //no break
-      case (byte) 0xA7: //no break
-      case (byte) 0xAB: //no break
-      case (byte) 0xAD: //no break
-      case (byte) 0xAE: //no break
-      case (byte) 0xB3: //no break
-      case (byte) 0xB5: //no break
-      case (byte) 0xB6: //no break
-      case (byte) 0xB9: //no break
-      case (byte) 0xBA: //no break
-      case (byte) 0xBC: //no break
-      case (byte) 0xC7: //no break
-      case (byte) 0xCB: //no break
-      case (byte) 0xCD: //no break
-      case (byte) 0xCE: //no break
-      case (byte) 0xD3: //no break
-      case (byte) 0xD5: //no break
-      case (byte) 0xD6: //no break
-      case (byte) 0xD9: //no break
-      case (byte) 0xDA: //no break
-      case (byte) 0xDC: //no break
-      case (byte) 0xE3: //no break
-      case (byte) 0xE5: //no break
-      case (byte) 0xE6: //no break
-      case (byte) 0xE9: //no break
-      case (byte) 0xEA: //no break
-      case (byte) 0xEC: //no break
-      case (byte) 0xF1: //no break
-      case (byte) 0xF2: //no break
-      case (byte) 0xF4: //no break
-      case (byte) 0xF8: //no break
-      case (byte) 0x1F: //no break
-      case (byte) 0x2F: //no break
+      case (byte) 0x9b: //no break
+      case (byte) 0x9d: //no break
+      case (byte) 0x9e: //no break
+      case (byte) 0xa7: //no break
+      case (byte) 0xab: //no break
+      case (byte) 0xad: //no break
+      case (byte) 0xae: //no break
+      case (byte) 0xb3: //no break
+      case (byte) 0xb5: //no break
+      case (byte) 0xb6: //no break
+      case (byte) 0xb9: //no break
+      case (byte) 0xba: //no break
+      case (byte) 0xbc: //no break
+      case (byte) 0xc7: //no break
+      case (byte) 0xcb: //no break
+      case (byte) 0xcd: //no break
+      case (byte) 0xce: //no break
+      case (byte) 0xd3: //no break
+      case (byte) 0xd5: //no break
+      case (byte) 0xd6: //no break
+      case (byte) 0xd9: //no break
+      case (byte) 0xda: //no break
+      case (byte) 0xdc: //no break
+      case (byte) 0xe3: //no break
+      case (byte) 0xe5: //no break
+      case (byte) 0xe6: //no break
+      case (byte) 0xe9: //no break
+      case (byte) 0xea: //no break
+      case (byte) 0xec: //no break
+      case (byte) 0xf1: //no break
+      case (byte) 0xf2: //no break
+      case (byte) 0xf4: //no break
+      case (byte) 0xf8: //no break
+      case (byte) 0x1f: //no break
+      case (byte) 0x2f: //no break
       case (byte) 0x37: //no break
-      case (byte) 0x3B: //no break
-      case (byte) 0x3D: //no break
-      case (byte) 0x3E: //no break
-      case (byte) 0x4F: //no break
+      case (byte) 0x3b: //no break
+      case (byte) 0x3d: //no break
+      case (byte) 0x3e: //no break
+      case (byte) 0x4f: //no break
       case (byte) 0x57: //no break
-      case (byte) 0x5B: //no break
-      case (byte) 0x5D: //no break
-      case (byte) 0x5E: //no break
+      case (byte) 0x5b: //no break
+      case (byte) 0x5d: //no break
+      case (byte) 0x5e: //no break
       case (byte) 0x67: //no break
-      case (byte) 0x6B: //no break
-      case (byte) 0x6D: //no break
-      case (byte) 0x6E: //no break
+      case (byte) 0x6b: //no break
+      case (byte) 0x6d: //no break
+      case (byte) 0x6e: //no break
       case (byte) 0x73: //no break
       case (byte) 0x75: //no break
       case (byte) 0x76: //no break
       case (byte) 0x79: //no break
-      case (byte) 0x7A: //no break
-      case (byte) 0x7C: //no break
+      case (byte) 0x7a: //no break
+      case (byte) 0x7c: //no break
         return 5;
-      case (byte) 0x9F: //no break
-      case (byte) 0xAF: //no break
-      case (byte) 0xB7: //no break
-      case (byte) 0xBB: //no break
-      case (byte) 0xBD: //no break
-      case (byte) 0xBE: //no break
-      case (byte) 0xCF: //no break
-      case (byte) 0xD7: //no break
-      case (byte) 0xDB: //no break
-      case (byte) 0xDD: //no break
-      case (byte) 0xDE: //no break
-      case (byte) 0xE7: //no break
-      case (byte) 0xEB: //no break
-      case (byte) 0xED: //no break
-      case (byte) 0xEE: //no break
-      case (byte) 0xF3: //no break
-      case (byte) 0xF5: //no break
-      case (byte) 0xF6: //no break
-      case (byte) 0xF9: //no break
-      case (byte) 0xFA: //no break
-      case (byte) 0xFC: //no break
-      case (byte) 0x3F: //no break
-      case (byte) 0x5F: //no break
-      case (byte) 0x6F: //no break
+      case (byte) 0x9f: //no break
+      case (byte) 0xaf: //no break
+      case (byte) 0xb7: //no break
+      case (byte) 0xbb: //no break
+      case (byte) 0xbd: //no break
+      case (byte) 0xbe: //no break
+      case (byte) 0xcf: //no break
+      case (byte) 0xd7: //no break
+      case (byte) 0xdb: //no break
+      case (byte) 0xdd: //no break
+      case (byte) 0xde: //no break
+      case (byte) 0xe7: //no break
+      case (byte) 0xeb: //no break
+      case (byte) 0xed: //no break
+      case (byte) 0xee: //no break
+      case (byte) 0xf3: //no break
+      case (byte) 0xf5: //no break
+      case (byte) 0xf6: //no break
+      case (byte) 0xf9: //no break
+      case (byte) 0xfa: //no break
+      case (byte) 0xfc: //no break
+      case (byte) 0x3f: //no break
+      case (byte) 0x5f: //no break
+      case (byte) 0x6f: //no break
       case (byte) 0x77: //no break
-      case (byte) 0x7B: //no break
-      case (byte) 0x7D: //no break
-      case (byte) 0x7E: //no break
+      case (byte) 0x7b: //no break
+      case (byte) 0x7d: //no break
+      case (byte) 0x7e: //no break
         return 6;
-      case (byte) 0xBF: //no break
-      case (byte) 0xDF: //no break
-      case (byte) 0xEF: //no break
-      case (byte) 0xF7: //no break
-      case (byte) 0xFB: //no break
-      case (byte) 0xFD: //no break
-      case (byte) 0xFE: //no break
+      case (byte) 0xbf: //no break
+      case (byte) 0xdf: //no break
+      case (byte) 0xef: //no break
+      case (byte) 0xf7: //no break
+      case (byte) 0xfb: //no break
+      case (byte) 0xfd: //no break
+      case (byte) 0xfe: //no break
         return 7;
       //case (byte) 0xFF: //no break
       default:

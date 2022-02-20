@@ -64,12 +64,12 @@ public class ArrayTriIndexNodeMutant<T> implements I_IndexNodeMutant<T> {
   /**
    * this is top down left to right so the items
    * in here are either <br/>
-   * empty<br/>
+   * NULL<br/>
    * another dimension of this<br/>
    * or
    * leaf's @see compress above
    */
-  private Tri<ByteIndexNodeMutant<T>, I_IndexNodeMutant<T>>[] items;
+  private Either<CompressedIndexNode<T>, I_IndexNodeMutant<T>>[] items;
   private int size = 0;
 
   public ArrayTriIndexNodeMutant() {
@@ -81,10 +81,6 @@ public class ArrayTriIndexNodeMutant<T> implements I_IndexNodeMutant<T> {
     _base = base;
     _baseLeaf = base;
     int size = (int) Math.pow(2, base);
-    items = new Tri[size];
-    for (int i = 0; i < items.length; i++) {
-      items[i] = Tri.EMPTY_TRI;
-    }
   }
   
   @Override
