@@ -2,9 +2,7 @@ package org.adligo.collections.shared;
 
 /**
  * This will provide parameters to the {@link Index} and {@link IndexMutant}
- * classes.
- * 
- * @author scott
+ * classes.<br/>
  *
  * <pre><code>
  * ---------------- Apache ICENSE-2.0 --------------------------
@@ -56,83 +54,129 @@ public class IndexParams {
   public static final int BASE_536M = 536870912;
   public static final int BASE_1B = 1073741824;
   public static final String IS_NOT_SUPPORETED = " is NOT supporeted!";
+  public static final String IS_NOT_SUPPORETED_YET = " is NOT supporeted yet!";
   public static final String THE_BASE = "The base ";
+  public static final String THE_BASE_2_EXPONENT  = "The base 2 exponent ";
 
-  private int base2Exponent = 3;
+  public static final int baseToBase2Exponent(int base) {
+    //There doensn't seem to be a good way to go 
+    // from a base to a base2ExponentO
+    
+    switch (base) {
+      case BASE_2: return  1; 
+      case BASE_4: return  2; 
+      case BASE_8: return  3; 
+      case BASE_16: return  4; 
+      case BASE_32: return  5; 
+      case BASE_64: return  6; 
+      case BASE_128: return  7; 
+      case BASE_256: return  8; 
+      case BASE_512: return  9; 
+      case BASE_1K: return  10; 
+      case BASE_2K: return  11; 
+      case BASE_4K: return  12; 
+      case BASE_8K: return  13; 
+      case BASE_16K: return  14; 
+      case BASE_32K: return  15; 
+      case BASE_65K: return  16; 
+      case BASE_131K: return  17; 
+      case BASE_262K: return  18; 
+      case BASE_524K: return  19; 
+      case BASE_1M: return  20; 
+      case BASE_2M: return  21; 
+      case BASE_4M: return  22; 
+      case BASE_8M: return  23; 
+      case BASE_16M: return  24; 
+      case BASE_33M: return  25; 
+      case BASE_67M: return  26; 
+      case BASE_134M: return  27; 
+      case BASE_268M: return  28; 
+      case BASE_536M: return  29; 
+      case BASE_1B: return  30; 
+      default: 
+        throw new IllegalArgumentException(THE_BASE + base + IS_NOT_SUPPORETED);
+    }
+  }
 
-  private int leafTeirsOfCompression = 0;
-
+  private int _base2Exponent = 3;
+  private int _leafTiersOfCompression = 0;
+  private int _leafBase2Exponent = 3;
+  
   public int getBase() {
-    return (int) Math.pow((double) 2, (double) base2Exponent);
+    return (int) Math.pow((double) 2, (double) _base2Exponent);
   }
   
   public int getBase2Exponent() {
-    return base2Exponent;
+    return _base2Exponent;
   }
-
-  public int getLeafTeirsOfCompression() {
-    return leafTeirsOfCompression;
+  
+  public int getLeafBase() {
+    return (int) Math.pow((double) 2, (double) _leafBase2Exponent);
+  }
+  
+  public int getLeafBase2Exponent() {
+    return _leafBase2Exponent;
+  }
+  
+  public int getLeafTiersOfCompression() {
+    return _leafTiersOfCompression;
   }
 
   public IndexParams setBase(int base) {
     //There doensn't seem to be a good way to go 
     // from a base to a base2ExponentO
-    boolean foundOne = false;
-    
-    switch (base) {
-      case BASE_2: base2Exponent = 1; break;
-      case BASE_4: base2Exponent = 2; break;
-      case BASE_8: base2Exponent = 3; break;
-      case BASE_16: base2Exponent = 4; break;
-      case BASE_32: base2Exponent = 5; break;
-      case BASE_64: base2Exponent = 6; break;
-      case BASE_128: base2Exponent = 7; break;
-      case BASE_256: base2Exponent = 8; break;
-      case BASE_512: base2Exponent = 9; break;
-      case BASE_1K: base2Exponent = 10; break;
-      case BASE_2K: base2Exponent = 11; break;
-      case BASE_4K: base2Exponent = 12; break;
-      case BASE_8K: base2Exponent = 13; break;
-      case BASE_16K: base2Exponent = 14; break;
-      case BASE_32K: base2Exponent = 15; break;
-      case BASE_65K: base2Exponent = 16; break;
-      case BASE_131K: base2Exponent = 17; break;
-      case BASE_262K: base2Exponent = 18; break;
-      case BASE_524K: base2Exponent = 19; break;
-      case BASE_1M: base2Exponent = 20; break;
-      case BASE_2M: base2Exponent = 21; break;
-      case BASE_4M: base2Exponent = 22; break;
-      case BASE_8M: base2Exponent = 23; break;
-      case BASE_16M: base2Exponent = 24; break;
-      case BASE_33M: base2Exponent = 25; break;
-      case BASE_67M: base2Exponent = 26; break;
-      case BASE_134M: base2Exponent = 27; break;
-      case BASE_268M: base2Exponent = 28; break;
-      case BASE_536M: base2Exponent = 29; break;
-      case BASE_1B: base2Exponent = 30; break;
-      default: 
-        throw new IllegalArgumentException(THE_BASE + base + IS_NOT_SUPPORETED);
-    }
+    _base2Exponent = baseToBase2Exponent(base);
     return this;
   }
   
   /**
    * All of the math in the index uses exponents of 2 / base 2.
-   * For examele to get base 8, use 3 for 2 ^ 3, etc.
+   * For example to get base 8, use 3 for 2 ^ 3, etc.
    */
   public IndexParams setBase2Exponent(int base2Exponent) {
-    this.base2Exponent = base2Exponent;
+    if (base2Exponent < 1 || base2Exponent > 30) {
+      throw new IllegalArgumentException(THE_BASE_2_EXPONENT + base2Exponent + IS_NOT_SUPPORETED);
+    }
+    _base2Exponent = base2Exponent;
     return this;
   }
  
+  /**
+   * set the base of the leaf nodes and the compressed tiers
+   * above leaf nodes.
+   * @param leafBase2Exponent
+   * @return
+   */
+  public IndexParams setLeafBase(int leafBase2Exponent) {
+    _leafBase2Exponent = baseToBase2Exponent(leafBase2Exponent);
+    return this;
+  }
+  /**
+   * Sets the leaf base 2 exponent which MUST be 1,2,3,4,5 or 6
+   * @param leafBase2Exponent
+   * @return
+   */
+  public IndexParams setLeafBase2Exponent(int leafBase2Exponent) {
+    if (leafBase2Exponent < 1 || leafBase2Exponent > 6) {
+      throw new IllegalArgumentException(THE_BASE_2_EXPONENT + leafBase2Exponent + 
+          IS_NOT_SUPPORETED);
+    }
+    if (leafBase2Exponent < 3 || leafBase2Exponent > 3) {
+      throw new IllegalArgumentException(THE_BASE_2_EXPONENT + leafBase2Exponent + 
+          IS_NOT_SUPPORETED_YET);
+    }
+    this._leafBase2Exponent = leafBase2Exponent;
+    return this;
+  }
+  
   /**
    * Increase this number in order to add compression
    * to the leaf most teirs, ONLY when there are enough
    * teirs to support commpression does this value come into play.
    * 
    */
-  public IndexParams setLeafTeirsOfCompression(int leafTeirsOfCompression) {
-    this.leafTeirsOfCompression = leafTeirsOfCompression;
+  public IndexParams setLeafTiersOfCompression(int leafTeirsOfCompression) {
+    this._leafTiersOfCompression = leafTeirsOfCompression;
     return this;
   }  
   

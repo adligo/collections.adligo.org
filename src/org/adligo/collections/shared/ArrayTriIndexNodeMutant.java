@@ -103,7 +103,7 @@ public class ArrayTriIndexNodeMutant<T> implements I_IndexNodeMutant<T> {
   }
 
   @Override
-  public void set(int idx, T t) {
+  public ArrayTriIndexNodeMutant<T> set(int idx, T t) {
     throw new IllegalStateException("TODO");
   }
 

@@ -117,9 +117,10 @@ public class ByteIndexNodeMutant<T> implements I_IndexNodeMutant<T> {
   }
 
   @Override
-  public void set(int idx, T t) {
+  public ByteIndexNodeMutant<T> set(int idx, T t) {
     // TODO Auto-generated method stub
     
+    return this;
   }
 
 }

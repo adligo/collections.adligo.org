@@ -80,12 +80,13 @@ public class ArrayIndexNodeMutant<T> implements I_IndexNodeMutant<T> {
   }
 
   @Override
-  public void set(int idx, T t) {
+  public ArrayIndexNodeMutant<T> set(int idx, T t) {
     if (t == null) {
       items[idx] = Optional.empty();
     } else {
       items[idx] = Optional.of(t);
     }
+    return this;
   }
 
 }
