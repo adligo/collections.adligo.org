@@ -1,6 +1,7 @@
 package org.adligo.collections.shared;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -49,7 +50,6 @@ public class CompressedIndexNode<T> implements I_IndexNode<T> {
    */
   private final BigInteger _itemIdxs;
   private final Numbered<T>[] _items;
-  private final int _size;
   
   /**
    * Technically the items array is mutable after this constructor is called,
@@ -76,7 +76,6 @@ public class CompressedIndexNode<T> implements I_IndexNode<T> {
 //      System.out.println(itemIdxs.toString(2));
     }
     _itemIdxs = itemIdxs;
-    _size = items.length;
   }
   
   /**
@@ -102,8 +101,8 @@ public class CompressedIndexNode<T> implements I_IndexNode<T> {
     BigInteger mask = IntMask.getMask(rightSlots);
     BigInteger potentialOnes = _itemIdxs.and(mask);
     int onesCount = 0;
-    System.out.println("\ndebugging " + mask.toString(2));
-    System.out.println(potentialOnes.toString(2));
+//    System.out.println("\ndebugging " + mask.toString(2));
+//    System.out.println(potentialOnes.toString(2));
     for (int i = rightSlots; i > 0;) {
       if (i >= 8) {
         byte b = potentialOnes.and(IntMask.EIGHT).byteValue();
@@ -151,8 +150,43 @@ public class CompressedIndexNode<T> implements I_IndexNode<T> {
     return set >= 1;
   }
   
+  /**
+   * Create a new CompressedIndexNode replacing the
+   * current slot with the one passed in.
+   * @param t
+   * @return
+   */
+  public CompressedIndexNode<T> replace(Numbered<T> t) {
+    Numbered<T>[] newItems = Arrays.copyOf(_items, _items.length); 
+    Optional<Integer> arrayIdx = findItemIndex(t.getNbr());
+    newItems[arrayIdx.get()] = t;
+    return new CompressedIndexNode<T>(newItems, _capacity);
+  }
+  
+  /**
+   * Create a new CompressedIndexNode removing the
+   * current slot with the one passed in.
+   * @param idx
+   * @return
+   */
+  @SuppressWarnings("unchecked")
+  public CompressedIndexNode<T> remove(int idx) {
+    Numbered<T>[] newItems = new Numbered[_items.length - 1];
+    int ni = 0;
+    for (int i = 0; i < _items.length; i++) {
+      Numbered<T> n = _items[i];
+      if (n.getNbr() == idx) {
+        //skip
+      } else {
+        newItems[ni] = _items[i];
+        ni++;
+      }
+    }
+    return new CompressedIndexNode<T>(newItems, _capacity);
+  }
+  
   public int size() {
-    return _size;
+    return _items.length;
   }
 
   /**
@@ -181,5 +215,6 @@ public class CompressedIndexNode<T> implements I_IndexNode<T> {
     }
     return Optional.empty();
   }
+  
   
 }
