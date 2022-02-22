@@ -1,15 +1,15 @@
-package org.adligo.collections.shared;
+package org.adligo.collections.shared.indices;
 
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import org.adligo.i_collections.shared.I_IndexMutant;
+import org.adligo.i_collections.shared.common.I_Numbered;
+import org.adligo.i_collections.shared.indices.I_NumberedIndexMutant;
 
 /**
- * A sort of a ArrayList like thing with the max size of {@link Integer#MAX_VALUE}
- * however with faster add / insert execution times O(log baseX n), really pretty close
- * to O(1).  Slower random access times O(log baseX n) instead of O(1), and similar
- * loop times (via stream methods O(n).
+ * This is a Index for use when {@link I_Numbered} is implemented
+ * by the client code.  It is exposed for completeness.  If you want 
+ * more of an array style interface use {@link ArrayIndexMutnat}
  * 
  * @author scott
  *
@@ -31,21 +31,15 @@ import org.adligo.i_collections.shared.I_IndexMutant;
  * limitations under the License.
  * </code><pre>
  */
-public class IndxMutant<T> implements I_IndexMutant<T> {
-  private NumberedArrayIndexMutant<Numbered<T>> _delegate;
-  
-  @Override
-  public int add(T t) {
-    // TODO Auto-generated method stub
-    return 0;
-  }
+public class NumberedArrayIndexMutant<T extends I_Numbered> implements I_NumberedIndexMutant<T> {
+  private ArrayTriIndexNodeMutant<T> _top;
   
   @Override
   public Optional<T> find(int idx) {
     // TODO Auto-generated method stub
     return null;
   }
-
+  
   @Override
   public T get(int idx) {
     // TODO Auto-generated method stub
@@ -89,7 +83,7 @@ public class IndxMutant<T> implements I_IndexMutant<T> {
   }
 
   @Override
-  public boolean set(int idx, T t) {
+  public boolean set(T t) {
     // TODO Auto-generated method stub
     return false;
   }

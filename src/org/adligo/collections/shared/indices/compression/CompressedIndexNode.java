@@ -1,11 +1,14 @@
-package org.adligo.collections.shared;
+package org.adligo.collections.shared.indices.compression;
 
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
 
-import org.adligo.i_collections.shared.I_IndexNode;
+import org.adligo.collections.shared.common.Bits;
+import org.adligo.collections.shared.common.IntMask;
+import org.adligo.collections.shared.common.Numbered;
+import org.adligo.i_collections.shared.indices.I_IndexNode;
 
 /**
  * A strange node inspired by 

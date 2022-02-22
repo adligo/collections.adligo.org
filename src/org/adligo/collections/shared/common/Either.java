@@ -1,4 +1,4 @@
-package org.adligo.collections.shared;
+package org.adligo.collections.shared.common;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -25,25 +25,11 @@ import java.util.Optional;
  * limitations under the License.
  * </code><pre>
  */
-public class Tri<L,R> {
+public class Either<L,R> {
+  public static final String ONE_MUST_BE_PRESENT = "One MUST be Present!";
   public static final String BOTH_CAN_NOT_BE_PRESENT = "Both can NOT be present!";
-  public static final Tri EMPTY_TRI = new Tri();
-  
   private final Optional<L> left;
   private final Optional<R> right;
-  
-  private Tri() {
-    this(Optional.empty(), Optional.empty());
-  }
-  
-  public Tri(Optional<L> left, Optional<R> right) {
-    this.left = Objects.requireNonNull(left);
-    this.right = Objects.requireNonNull(right);
-
-    if (left.isPresent() && right.isPresent()) {
-      throw new IllegalArgumentException(BOTH_CAN_NOT_BE_PRESENT);
-    }
-  }
   
   public Optional<L> getLeft() {
     return left;
@@ -53,10 +39,16 @@ public class Tri<L,R> {
     return right;
   }
 
-  public boolean isEmpty() {
-    if (left.isPresent() || right.isPresent()) {
-      return false;
+  public Either(Optional<L> left, Optional<R> right) {
+    this.left = Objects.requireNonNull(left);
+    this.right = Objects.requireNonNull(right);
+
+    if (left.isPresent() && right.isPresent()) {
+      throw new IllegalArgumentException(BOTH_CAN_NOT_BE_PRESENT);
     }
-    return true;
+    
+    if ( !left.isPresent() && !right.isPresent()) {
+      throw new IllegalArgumentException(ONE_MUST_BE_PRESENT);
+    }
   }
 }

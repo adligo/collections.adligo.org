@@ -1,8 +1,8 @@
-package org.adligo.collections.shared;
+package org.adligo.collections.shared.common;
 
 import java.util.Objects;
 
-import org.adligo.i_collections.shared.I_Numbered;
+import org.adligo.i_collections.shared.common.I_Numbered;
 
 /**
  * A simple wrapper to add the {@link I_Nubered} interface

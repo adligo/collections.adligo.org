@@ -1,4 +1,4 @@
-package org.adligo.collections.shared;
+package org.adligo.collections.shared.common;
 
 import java.math.BigInteger;
 

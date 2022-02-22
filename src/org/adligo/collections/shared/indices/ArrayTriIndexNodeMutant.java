@@ -1,8 +1,10 @@
-package org.adligo.collections.shared;
+    package org.adligo.collections.shared.indices;
 
 import java.util.Optional;
 
-import org.adligo.i_collections.shared.I_IndexNodeMutant;
+import org.adligo.collections.shared.common.Either;
+import org.adligo.collections.shared.indices.compression.CompressedIndexNode;
+import org.adligo.i_collections.shared.indices.I_IndexNodeMutant;
 
 
 /**

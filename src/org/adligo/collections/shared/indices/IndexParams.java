@@ -1,4 +1,4 @@
-package org.adligo.collections.shared;
+package org.adligo.collections.shared.indices;
 
 /**
  * This will provide parameters to the {@link Index} and {@link IndexMutant}
