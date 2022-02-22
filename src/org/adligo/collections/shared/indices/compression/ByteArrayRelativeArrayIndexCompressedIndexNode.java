@@ -8,8 +8,9 @@ import org.adligo.i_collections.shared.indices.I_IndexNode;
 
 /**
  * A compressed node that uses the concept of a relative pointer / array index.
- * A byte is used in place of a pointer (8x compression) to identify
- * the relative position in the compressed array.
+ * A byte is used in place of a pointer (8x compression on 64 bit java, 4x compression
+ * on 32 bit java) to identify
+ * the relative position in the compressed array of _items.
  * 
  * @author scott
  *
@@ -42,6 +43,22 @@ extends AbstractCompressedIndexNode<T> implements I_IndexNode<T> {
   private final byte[] _itemIdxs;
   
   /**
+   * inspired by {@link <a href="https://en.wikipedia.org/wiki/Van_Emde_Boas_tree">Van Emde Boas trees</a>
+   * this byte is really a binary structure with 64 bits.
+   * if the bit at index is set to true, then a element exists at index of 0,
+   * etc all the way up until 63</br>
+   */
+  private final long _0to63;
+
+  /**
+   * inspired by {@link <a href="https://en.wikipedia.org/wiki/Van_Emde_Boas_tree">Van Emde Boas trees</a>
+   * this byte is really a binary structure with 64 bits.
+   * if the bit at index is set to true, then a element exists at index of 64,
+   * etc all the way up until 127</br>
+   */
+  private final long _64to127;
+  
+  /**
    * Technically the items array is mutable after this constructor is called,
    * however as a gentlemans agreement it MUST NOT be mutated after
    * this constructor is called by other code.
@@ -63,6 +80,9 @@ extends AbstractCompressedIndexNode<T> implements I_IndexNode<T> {
       int nbr = n.getNbr();
       _itemIdxs[nbr] = (byte) i;
     }
+    //TODO
+    _0to63 = 0;
+    _64to127 = 0L;
   }
   
   @Override
