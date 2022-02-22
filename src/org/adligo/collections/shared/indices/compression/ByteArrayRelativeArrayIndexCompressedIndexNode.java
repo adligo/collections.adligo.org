@@ -9,8 +9,10 @@ import org.adligo.i_collections.shared.indices.I_IndexNode;
 /**
  * A compressed node that uses the concept of a relative pointer / array index.
  * A byte is used in place of a pointer (8x compression on 64 bit java, 4x compression
- * on 32 bit java) to identify
- * the relative position in the compressed array of _items.
+ * on 32 bit java) to identify the relative position in the compressed array of _items.<br/>
+ *   In addition this provides a {@link <a href="https://en.wikipedia.org/wiki/Van_Emde_Boas_tree">Van Emde Boas trees</a>
+ * inspired set of bits stored as two longs, which enable bit mask style searching
+ * for O(1) operations to identify items before or after a particular compressed item.
  * 
  * @author scott
  *
