@@ -3,7 +3,8 @@ package org.adligo.collections.shared.common;
 import java.util.Objects;
 import java.util.Optional;
 /**
- * Just another Either class, both may be empty or one MAY be set. <br/>
+ * Just another Either class either the left or right must
+ * be set, optimized for low space usage.. <br/>
  * 
  * @author scott
  *
@@ -26,29 +27,27 @@ import java.util.Optional;
  * </code><pre>
  */
 public class Either<L,R> {
-  public static final String ONE_MUST_BE_PRESENT = "One MUST be Present!";
-  public static final String BOTH_CAN_NOT_BE_PRESENT = "Both can NOT be present!";
-  private final Optional<L> left;
-  private final Optional<R> right;
+  private final boolean _left;
+  private final Object _leftOrRight;
   
+  @SuppressWarnings("unchecked")
   public Optional<L> getLeft() {
-    return left;
+    if (_left) {
+      return (Optional<L>) Optional.of(_leftOrRight);
+    }
+    return Optional.empty();
   }
 
+  @SuppressWarnings("unchecked")
   public Optional<R> getRight() {
-    return right;
+    if ( !_left) {
+      return (Optional<R>) Optional.of(_leftOrRight);
+    }
+    return Optional.empty();
   }
 
-  public Either(Optional<L> left, Optional<R> right) {
-    this.left = Objects.requireNonNull(left);
-    this.right = Objects.requireNonNull(right);
-
-    if (left.isPresent() && right.isPresent()) {
-      throw new IllegalArgumentException(BOTH_CAN_NOT_BE_PRESENT);
-    }
-    
-    if ( !left.isPresent() && !right.isPresent()) {
-      throw new IllegalArgumentException(ONE_MUST_BE_PRESENT);
-    }
+  public Either(L left) {
+    _left = true;
+    _leftOrRight = Objects.requireNonNull(left);
   }
 }
