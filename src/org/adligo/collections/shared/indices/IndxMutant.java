@@ -95,4 +95,10 @@ public class IndxMutant<T> implements I_IndexMutant<T> {
     return false;
   }
 
+  @Override
+  public boolean isBig() {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
 }

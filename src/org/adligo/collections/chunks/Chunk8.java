@@ -5,7 +5,7 @@ import java.util.stream.Stream;
 
 import org.adligo.collections.shared.common.Numbered;
 import org.adligo.i_collections.shared.chunks.I_Chunk;
-import org.adligo.i_collections.shared.chunks.I_NewChunkState;
+import org.adligo.i_collections.shared.chunks.I_NewChunk;
 import org.adligo.i_collections.shared.streams.I_SizedSupplier;
 
 /**
@@ -123,15 +123,21 @@ public class Chunk8<T> implements I_Chunk<T> {
   }
 
   @Override
-  public I_NewChunkState<T> overlay(int idx, T t) {
+  public I_NewChunk<T> overlay(int idx, T t) {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public I_NewChunkState<T> reduce(int idx) {
+  public I_NewChunk<T> reduce(int idx) {
     // TODO Auto-generated method stub
     return null;
+  }
+
+  @Override
+  public boolean isBig() {
+    // TODO Auto-generated method stub
+    return false;
   }
 
 }

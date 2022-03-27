@@ -88,4 +88,10 @@ public class NumberedArrayIndexMutant<T extends I_Numbered> implements I_Numbere
     return false;
   }
 
+  @Override
+  public boolean isBig() {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
 }
