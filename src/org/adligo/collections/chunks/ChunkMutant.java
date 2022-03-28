@@ -12,8 +12,9 @@ import org.adligo.i_collections.shared.streams.I_SizedSupplier;
 
 /**
  * This is a Mutable implementation of the {@link I_Chunk}
- * interface that must have between 2 and 64 elements, going
- * up the base 2 number system (i.e. 2, 4, 8, 16, 32, 64).<br/>
+ * interface that must have between 2 and a little over 
+ * one billion elements, going up the base 2 number 
+ * system (i.e. 2, 4, 8, 16, 32, 64, etc).<br/>
  *
  * <pre><code>
  * ---------------- Apache ICENSE-2.0 --------------------------
@@ -33,8 +34,10 @@ import org.adligo.i_collections.shared.streams.I_SizedSupplier;
  * limitations under the License.
  * </code><pre>
  */
-public class Chunk64Mutant<T> extends AbstractChunkMutant<T> implements I_Chunk<T> {
+public class ChunkMutant<T> extends AbstractChunkMutant<T> implements I_Chunk<T> {
   public static final String THE_FOLLOWING_ITEMS_ARRAY_SIZE_IS_INVALID = "The following items array size is invalid; ";
+  
+  
 
   private static <T> T[] verifyCapacity(T[] items) {
     verifyCapacity(items.length);
@@ -47,21 +50,18 @@ public class Chunk64Mutant<T> extends AbstractChunkMutant<T> implements I_Chunk<
     } catch (IllegalArgumentException x) {
       throw new IllegalArgumentException(THE_FOLLOWING_ITEMS_ARRAY_SIZE_IS_INVALID + capacity, x);
     }
-    if (capacity > 64) {
-      throw new IllegalArgumentException(THE_FOLLOWING_ITEMS_ARRAY_SIZE_IS_INVALID + capacity); 
-    }
     return capacity;
   }
 
-  private long _bits;
+  private long[] _bits;
 
   @SuppressWarnings("unchecked")
-  public Chunk64Mutant() {
+  public ChunkMutant() {
     this(32);
   }
 
   @SuppressWarnings("unchecked")
-  public Chunk64Mutant(int capacity) {
+  public ChunkMutant(int capacity) {
     super(verifyCapacity(capacity));
   }
   
@@ -71,7 +71,7 @@ public class Chunk64Mutant<T> extends AbstractChunkMutant<T> implements I_Chunk<
    * constructor;
    * @param items
    */
-  public Chunk64Mutant(T[] items) {
+  public ChunkMutant(T[] items) {
     super(verifyCapacity(items));
   }
 

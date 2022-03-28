@@ -11,9 +11,10 @@ import org.adligo.i_collections.shared.streams.I_SizedSupplier;
 
 
 /**
- * This is a Mutable implementation of the {@link I_Chunk}
- * interface that must have between 2 and 64 elements, going
- * up the base 2 number system (i.e. 2, 4, 8, 16, 32, 64).<br/>
+ * This is a Abstract Mutable implementation of the {@link I_Chunk}
+ * interface that must have between 2 and a 
+ * little over 1 billion elements, going
+ * up the base 2 number system (i.e. 2, 4, 8, 16, 32, 64, etc ).<br/>
  *
  * <pre><code>
  * ---------------- Apache ICENSE-2.0 --------------------------
@@ -33,36 +34,19 @@ import org.adligo.i_collections.shared.streams.I_SizedSupplier;
  * limitations under the License.
  * </code><pre>
  */
-public class Chunk64Mutant<T> extends AbstractChunkMutant<T> implements I_Chunk<T> {
-  public static final String THE_FOLLOWING_ITEMS_ARRAY_SIZE_IS_INVALID = "The following items array size is invalid; ";
+public abstract class AbstractChunkMutant<T> implements I_Chunk<T> {
+  public static final String THE_FOLLOWING_ITEMS_ARRAY_SIZE_IS_INVALID = 
+      "The following items array size is invalid; ";
+  int _size;
+  T[] _objs;
 
-  private static <T> T[] verifyCapacity(T[] items) {
-    verifyCapacity(items.length);
-    return items;
-  }
-
-  private static int verifyCapacity(int capacity) {
-    try {
-      Base2Exponents.toExponent(capacity, true);
-    } catch (IllegalArgumentException x) {
-      throw new IllegalArgumentException(THE_FOLLOWING_ITEMS_ARRAY_SIZE_IS_INVALID + capacity, x);
-    }
-    if (capacity > 64) {
-      throw new IllegalArgumentException(THE_FOLLOWING_ITEMS_ARRAY_SIZE_IS_INVALID + capacity); 
-    }
-    return capacity;
-  }
-
-  private long _bits;
-
-  @SuppressWarnings("unchecked")
-  public Chunk64Mutant() {
+  AbstractChunkMutant() {
     this(32);
   }
 
-  @SuppressWarnings("unchecked")
-  public Chunk64Mutant(int capacity) {
-    super(verifyCapacity(capacity));
+  AbstractChunkMutant(int capacity) {
+    _size = 0;
+    _objs = (T[]) new Object[capacity];
   }
   
   /**
@@ -71,8 +55,14 @@ public class Chunk64Mutant<T> extends AbstractChunkMutant<T> implements I_Chunk<
    * constructor;
    * @param items
    */
-  public Chunk64Mutant(T[] items) {
-    super(verifyCapacity(items));
+  AbstractChunkMutant(T[] items) {
+    _objs = items;
+    int size = 0;
+    for (int i = 0; i < items.length; i++) {
+      //set the bits and size here
+      throw new IllegalStateException("TODO");
+    }
+    _size = size;
   }
 
   @Override
@@ -135,26 +125,27 @@ public class Chunk64Mutant<T> extends AbstractChunkMutant<T> implements I_Chunk<
   public I_Chunk<T> toChunk() {
     return this;
   }
+
+  /**
+   * Finds the next index that has a value 
+   * before the idx parameter.
+   * @param idx
+   * @return
+   */
+  abstract Optional<Integer> findIndexBefore(int idx);
   
-
-
-  @Override
-  Optional<Integer> findIndexBefore(int idx) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  Optional<Integer> findIndexAfter(int idx) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  @Override
-  void setBit(int bit) {
-    // TODO Auto-generated method stub
-    
-  }
+  /**
+   * Finds the next index that has a value 
+   * after the idx parameter.
+   * @param idx
+   * @return
+   */
+  abstract Optional<Integer> findIndexAfter(int idx);
   
-
+  /**
+   * sets the bit to flag a 
+   * array slot as used for the findIndex methods
+   * @param bit
+   */
+  abstract void setBit(int bit);
 }
