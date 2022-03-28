@@ -140,4 +140,9 @@ public class Chunk8<T> implements I_Chunk<T> {
     return false;
   }
 
+  @Override
+  public I_Chunk<T> toChunk() {
+    return this;
+  }
+
 }
